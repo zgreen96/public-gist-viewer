@@ -35,6 +35,7 @@ function App() {
     setShowDetail(false);
   }
 
+  //call api to get gists based on username, set gists, then display gistTable
   const onShowGists = async (username) => {
     setUsername(username);
     var userGists = await getUserGists(username);
@@ -45,6 +46,13 @@ function App() {
     setShowDetail(false);
   }
 
+  //toggle favorite in gistTable
+  const toggleFavorite = async () => {
+    console.log('coming soon');
+  }
+
+
+
   return (
     <div className="App">
       <Navbar
@@ -52,9 +60,9 @@ function App() {
         onHomeClick={onHomeClick}
       />
       {
-        showGistTable ? <GistTable /> : <Home onShowGists={onShowGists} />
+        showGistTable ? <GistTable gists={gists} toggleFavorite={toggleFavorite} /> : <Home onShowGists={onShowGists} />
       }
-      
+
     </div>
   );
 }
