@@ -35,12 +35,26 @@ function App() {
     setShowDetail(false);
   }
 
+  const onShowGists = async (username) => {
+    setUsername(username);
+    var userGists = await getUserGists(username);
+    setGists(userGists);
+    console.log(userGists);                         //delete later
+    setShowHome(false);
+    setShowGistTable(true);
+    setShowDetail(false);
+  }
+
   return (
     <div className="App">
       <Navbar
         onFavoritesClick={onFavoritesClick}
-        onHomClick={onHomeClick}
+        onHomeClick={onHomeClick}
       />
+      {
+        showGistTable ? <GistTable /> : <Home onShowGists={onShowGists} />
+      }
+      
     </div>
   );
 }
