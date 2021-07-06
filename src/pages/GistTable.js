@@ -32,7 +32,8 @@ export default function GistTable(props) {
     const onShowDetail = (gistId) => {
         props.onShowDetail(gistId);         
     }
-
+    
+    //maps gists to rows. Also toggle favorite icons
     if (gists) {
         return (
             <div className='gist-table-div'>

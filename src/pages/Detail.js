@@ -21,6 +21,7 @@ export default function Detail (props) {
         props.onShowGists(username);
     }
 
+    //shows a gist's details and maps filenames after "Files: "
     return (
         <div className='details-div'>
             <Card className={classes.root}>

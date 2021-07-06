@@ -34,7 +34,7 @@ function App() {
     onShowGists('favorites');
   }
 
-  //If favorites table, call favorites api, then display gistTable
+  //If favorites table, call favorites api, then display favorites using gistTable
   //else, call api to get gists based on username, set gists, then display gistTable
   const onShowGists = async (username) => {
     setUsername(username);
@@ -48,7 +48,6 @@ function App() {
       var userGists = await getUserGists(username);
       setGists(userGists);
     }
-    console.log(gists);                             //deleteLater
     setShowHome(false);
     setShowGistTable(true);
     setShowDetail(false);
@@ -68,14 +67,12 @@ function App() {
   const toggleFavorite = async (gist) => {
     var newGist = gist;
     newGist.favorite = !(gist.favorite);
-    console.log('gist: ', gist);                  //delete later
-    console.log('newGist: ', newGist);            //delete later
     await toggleFavoriteAPI(gist);
-    onShowGists(username);
+    onShowGists(username);                                    //to re-render gistTable, likely another way, but rushing
   }
 
 
-
+  //toggle views based on the toggleVariables
   return (
     <div className="App">
       <Navbar

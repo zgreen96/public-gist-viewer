@@ -15,6 +15,7 @@ export default function Home (props) {
         props.onShowGists(userName);
     }
 
+    //show search field and button
     return (
         <div className='home-content-div'>
             <form className='form' noValidate autoComplete='off'>
