@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import { getUserGists } from './serverUtilities';
+import { getUserGists, getAllFavorites, toggleFavoriteAPI } from './serverUtilities';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import GistTable from './pages/GistTable';
@@ -30,25 +30,38 @@ function App() {
   }
 
   const onFavoritesClick = () => {
-    setShowHome(true);
-    setShowGistTable(false);
-    setShowDetail(false);
+    setIsFavoritesTable(true);
+    onShowGists('favorites');
   }
 
-  //call api to get gists based on username, set gists, then display gistTable
+  //If favorites table, call favorites api, then display gistTable
+  //else, call api to get gists based on username, set gists, then display gistTable
   const onShowGists = async (username) => {
     setUsername(username);
-    var userGists = await getUserGists(username);
-    setGists(userGists);
-    console.log(userGists);                         //delete later
+    if(username === 'favorites'){
+      setIsFavoritesTable(true);
+      var favoritedGists = await getAllFavorites();
+      setGists(favoritedGists);
+    }
+    else{
+      setIsFavoritesTable(false);
+      var userGists = await getUserGists(username);
+      setGists(userGists);
+    }
+    console.log(gists);                             //deleteLater
     setShowHome(false);
     setShowGistTable(true);
     setShowDetail(false);
   }
 
   //toggle favorite in gistTable
-  const toggleFavorite = async () => {
-    console.log('coming soon');
+  const toggleFavorite = async (gist) => {
+    var newGist = gist;
+    newGist.favorite = !(gist.favorite);
+    console.log('gist: ', gist);                  //delete later
+    console.log('newGist: ', newGist);            //delete later
+    await toggleFavoriteAPI(gist);
+    onShowGists(username);
   }
 
 
@@ -60,7 +73,8 @@ function App() {
         onHomeClick={onHomeClick}
       />
       {
-        showGistTable ? <GistTable gists={gists} toggleFavorite={toggleFavorite} /> : <Home onShowGists={onShowGists} />
+        showGistTable ? <GistTable gists={gists} toggleFavorite={toggleFavorite} isFavoritesTable={isFavoritesTable}/> : 
+        <Home onShowGists={onShowGists} />
       }
 
     </div>

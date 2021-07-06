@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.gist-table-div{
+  width: 50%;
+  margin: 3rem auto 0 auto;
+}
+
+.home-content-div{
+  margin: 5rem auto 0 auto;
+}
+
+.search-gists-button{
+  margin-top: 1rem !important;
+  margin-left: 1rem !important;
+  color: white !important;
+  background-color: rgba(97, 90, 207, 0.925) !important;
+}

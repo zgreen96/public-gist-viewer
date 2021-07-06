@@ -21,7 +21,7 @@
       "id": 2,
       "user": "username1",
       "dateCreated": 272508923900,
-      "favorite": true,
+      "favorite": false,
       "description": "description 2"
     },
     {
@@ -35,7 +35,7 @@
       "id": 4,
       "user": "username2",
       "dateCreated": 1625189299,
-      "favorite": false,
+      "favorite": true,
       "description": "description 4"
     }
   ],

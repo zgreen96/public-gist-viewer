@@ -26,4 +26,14 @@ export const getGist = async (gistId) => {
     return response.data;
 }
 
+export const toggleFavoriteAPI = async (gist) => {
+    var gistId = gist.id;
+    const response = await axios.put(API_URL + '/gists/' + gistId, gist);
+    console.log(response.data);
+    return response.data;
+}
 
+export const getAllFavorites = async() => {
+    const response = await axios.get(API_URL + '/gists?favorite=true');
+    return response.data;
+}

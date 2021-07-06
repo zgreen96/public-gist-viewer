@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 export default function GistTable(props) {
     const classes = useStyles();
     const gists = props.gists;
+    const isFavoritesTable = props.isFavoritesTable;
 
     const toggleFavorite = (gist) => {
         props.toggleFavorite(gist);
@@ -36,6 +37,11 @@ export default function GistTable(props) {
     if (gists) {
         return (
             <div className='gist-table-div'>
+                {isFavoritesTable ? (
+                        <div className="title">
+                            <h2>Favorite Gists</h2>
+                        </div>
+                    ): null}
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="table">
                         <TableHead>
@@ -47,7 +53,7 @@ export default function GistTable(props) {
                         </TableHead>
                         <TableBody>
                             {gists.map((gist) => (
-                                <TableRow key={gist.description} >      {/*give an onClick*/}
+                                <TableRow key={gist.description} >     
                                     <TableCell component='th' scope="row">
                                         <Button
                                             className='showGistId'
