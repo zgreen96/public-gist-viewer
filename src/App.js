@@ -46,7 +46,7 @@ function App() {
     setShowDetail(false);
   }
 
-  //toggle favorite
+  //toggle favorite in gistTable
   const toggleFavorite = async () => {
     console.log('coming soon');
   }
