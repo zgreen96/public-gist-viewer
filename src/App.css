@@ -52,3 +52,17 @@
   color: white !important;
   background-color: rgba(97, 90, 207, 0.925) !important;
 }
+
+.details-div{
+  width: 30%;
+  margin: 3rem auto 0 auto;
+}
+
+.detail-back-button{
+  margin-right: 90% !important;
+  color: rgba(39, 26, 226, 0.925) !important;
+}
+
+ .files-label {
+  text-align: left;
+}

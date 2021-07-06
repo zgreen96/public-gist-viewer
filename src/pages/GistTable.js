@@ -30,8 +30,7 @@ export default function GistTable(props) {
     }
 
     const onShowDetail = (gistId) => {
-        return; 
-        //props.onShowDetail(gistId);           do this later
+        props.onShowDetail(gistId);         
     }
 
     if (gists) {
