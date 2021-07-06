@@ -37,3 +37,8 @@ export const getAllFavorites = async() => {
     const response = await axios.get(API_URL + '/gists?favorite=true');
     return response.data;
 }
+
+export const getDetailAPI = async (gistId) => {
+    const response = await axios.get(API_URL + '/detail?gistId=' + gistId)
+    return response.data;
+}

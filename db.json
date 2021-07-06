@@ -14,7 +14,7 @@
       "id": 1,
       "user": "username1",
       "dateCreated": 1625089299,
-      "favorite": true,
+      "favorite": false,
       "description": "description 1"
     },
     {

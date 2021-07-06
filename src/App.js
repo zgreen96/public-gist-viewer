@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import { getUserGists, getAllFavorites, toggleFavoriteAPI } from './serverUtilities';
+import { getUserGists, getAllFavorites, toggleFavoriteAPI, getDetailAPI } from './serverUtilities';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import GistTable from './pages/GistTable';
@@ -54,6 +54,16 @@ function App() {
     setShowDetail(false);
   }
 
+  //Show detail based on gist Id
+  const onShowDetail = async (gistId) => {
+    setGistId(gistId);
+    var newDetails = await getDetailAPI(gistId);
+    setDetails(newDetails);
+    setShowHome(false);
+    setShowGistTable(false);
+    setShowDetail(true);
+  }
+
   //toggle favorite in gistTable
   const toggleFavorite = async (gist) => {
     var newGist = gist;
@@ -73,7 +83,12 @@ function App() {
         onHomeClick={onHomeClick}
       />
       {
-        showGistTable ? <GistTable gists={gists} toggleFavorite={toggleFavorite} isFavoritesTable={isFavoritesTable}/> : 
+        showGistTable ? (
+          <GistTable gists={gists} toggleFavorite={toggleFavorite} isFavoritesTable={isFavoritesTable} onShowDetail={onShowDetail}/> 
+        ) : 
+        showDetail ? (
+          <Detail details={details} onShowGists={onShowGists} gistId={gistId} username={username} /> 
+        ) :
         <Home onShowGists={onShowGists} />
       }
 
