@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "username1"
+    },
+    {
+      "id": 2,
+      "username": "username2"
+    }
+  ],
+  "gists": [
+    {
+      "id": 1,
+      "user": "username1",
+      "dateCreated": 1625089299,
+      "favorite": true,
+      "description": "description 1"
+    },
+    {
+      "id": 2,
+      "user": "username1",
+      "dateCreated": 272508923900,
+      "favorite": true,
+      "description": "description 2"
+    },
+    {
+      "id": 3,
+      "user": "username2",
+      "dateCreated": 272508939900,
+      "favorite": false,
+      "description": "description 3"
+    },
+    {
+      "id": 4,
+      "user": "username2",
+      "dateCreated": 1625189299,
+      "favorite": false,
+      "description": "description 4"
+    }
+  ],
+  "detail": [
+    {
+      "id": 1,
+      "filename": "filename 1",
+      "gistId": 1
+    },
+    {
+      "id": 2,
+      "filename": "filename 2",
+      "gistId": 1
+    },
+    {
+      "id": 3,
+      "filename": "filename 3",
+      "gistId": 2
+    },
+    {
+      "id": 4,
+      "filename": "filename 4",
+      "gistId": 2
+    },
+    {
+      "id": 5,
+      "filename": "filename 5",
+      "gistId": 3
+    },
+    {
+      "id": 6,
+      "filename": "filename 6",
+      "gistId": 3
+    },
+    {
+      "id": 7,
+      "filename": "filename 7",
+      "gistId": 4
+    },
+    {
+      "id": 8,
+      "filename": "filename 8",
+      "gistId": 4
+    }
+  ]
+}
